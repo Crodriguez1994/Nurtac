@@ -21,7 +21,12 @@ public class EntityMF {
     }
 
     public static void InicializarEMF() {
-        emf = Persistence.createEntityManagerFactory("CapaDatosCapNurtacPU");
+        
+        try{
+         emf = Persistence.createEntityManagerFactory("CapaDatosCapNurtacPU");   
+        }catch(Exception e){
+            System.out.println("Error init Percistenc : "+e.getMessage());
+        }
     }
 
     public static void CerrarEMF() {
